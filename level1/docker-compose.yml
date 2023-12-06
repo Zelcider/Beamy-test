@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  level1-log-api:
+    image: api:latest
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    command: npm run start
+    ports:
+      - "3000:3000"
+    volumes:
+      - level1-log-api:/app
+      - level1-log-api:/app/parsed
+volumes:
+  level1-log-api:
